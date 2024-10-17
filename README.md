@@ -28,8 +28,26 @@ Binary images are 2D images consisting of exactly two colors. They encode many t
 All exisiting methods are likely to alter the ***topology*** of binary images - e.g., different components merged, small spots and holes erased, etc.
 
 <div style="align: center">
-  <img src="https://github.com/chenchiachia/BinaryImageDownsampling/blob/main/figures/exisiting_method_problem.png?raw=true"/>
+  <img src="https://github.com/chenchiachia/BinaryImageDownsampling/blob/main/figures/exisisting_method_problem.png?raw=true"/>
 </div>
+
+### Our integer programming optimization-based approach
+We formulate the problem as an optimization problem with Boolean variables only. Our main contribution is beging able to ***model the topology-preserving constraints as a list of linear constraints***.
+
+<div style="align: right">
+  <img src="https://github.com/chenchiachia/BinaryImageDownsampling/blob/main/figures/integer_programming.png?raw=true"/>
+</div>
+
+We ensure every component-component boundary to ***remain a closed loop*** after downsampling.
+
+### Quantitative results
+We tested on following two datasets:
+1. CNCB CT masks taken from COVID-positive patients(http://ncov-ai.big.ac.cn/download, ct_lesion_seg.zip):542 binary images
+2. Aerial roof masks (https://humansintheloop.org/resources/datasets/semantic-segmentation-dataset-2/): 255(512x512) images, randomly sampled from a larger satellite imagery collection.
+
+Our method generated ***100% topologically correct results*** while still having roughly ***the same similarity scores*** (IoU and Dice) as the best performing existing methods.
+
+
 
 ## SIGGRAPH Asia 2024 Poster: Shortest Path Speed-up Through Binary Image Downsampling
 ## How to use topology-preserving downsampling tool
