@@ -90,6 +90,10 @@ Chen et al.(ECCV2024) offers a reliable and fast topology-preserving solution.
 ### Testing results
 Our method dramatically reduced the times of the preprocessing step and run-time queries. Memory usages are also reduced. Accuracy is only slightly impacted. By using topology-preserving downsampling, no false-positive or negative-positive cases happen.
 
+<div style="align: center">
+  <img src="https://github.com/chenchiachia/BinaryImageDownsampling/blob/main/figures/sp_results.png?raw=true"/>
+</div>
+
 ## How to use topology-preserving downsampling tool
 
 1. Open the "downsampling" project, and select the "x64" platform and "Release" configurtion.
