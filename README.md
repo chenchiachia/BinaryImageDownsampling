@@ -53,6 +53,5 @@
 2. To process all images in a directory, use the following command:
     ```
    python dilation.py input_directory [output_directory]
-
    ```
 
