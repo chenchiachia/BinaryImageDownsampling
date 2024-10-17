@@ -1,6 +1,15 @@
 # Topology-Preserving Binary Image Downsampling
 
 ## ECCV 2024: Topology-Preserving Downsampling of Binary Images
+### Summary
+We propose the first **topology-preserving** binary image downsampling method that:
+1. works for **large (512x512 and up) input images**,
+2. generate **high-quality results**,
+3. can do high level downsampling (e.g., 8x, 16x) out-of-the-box, and
+4. is **resonably** fast (<1 seconds)
+### What are binary images and why they are important?
+Binary images are 2D images consisting of exactly two colors. They encode many things in AI such as **segmentation masks** in CV and **2D maps** in computer games. 
+
 ## SIGGRAPH Asia 2024 Poster: Shortest Path Speed-up Through Binary Image Downsampling
 ## How to use topology-preserving downsampling tool
 
