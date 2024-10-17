@@ -47,9 +47,49 @@ We tested on following two datasets:
 
 Our method generated ***100% topologically correct results*** while still having roughly ***the same similarity scores*** (IoU and Dice) as the best performing existing methods.
 
+<div style="align: right">
+  <img src="https://github.com/chenchiachia/BinaryImageDownsampling/blob/main/figures/cncb_results.png?raw=true"/>
+</div>
 
+Quantitative and speed comparisons of different downsampling methods on the 542 segmentation masks in the CNCB dataset to different sizes. Best and second-best results are marked in ***red*** and ***blue***, respectively.
 
+<div style="align: right">
+  <img src="https://github.com/chenchiachia/BinaryImageDownsampling/blob/main/figures/aerial_result.png?raw=true"/>
+</div>
+
+Quantitative and speed comparisons of different downsampling methods on the 255 segmentation masks in the aerial dataset to different sizes. Best and second-best results are marked in ***red*** and ***blue***, respectively.
 ## SIGGRAPH Asia 2024 Poster: Shortest Path Speed-up Through Binary Image Downsampling
+### Summary
+We propose a novel approach to achieve ***huge speed-ups for shortest path computations on 2D binary images*** at the cost of slight inaccuracies. 
+### How?
+“Arc flag”-based techniques are SOTAs for shortest path computation speed-ups. However, they required an expensive preprocessing step, which become a performance bottleneck. We propose to tackle the bottleneck by solving the shortest path problems ***in downsampled versions of the binary images*** and later convert the computed paths back.
+### Why this is important?
+2D geographical maps in games and movies are often encoded as binary images Point-to-point shortest path computations (e.g. Dijkstra) in such maps are computationally expensive as even small binary images are akin to large 2D graphs of many vertices (each pixel is one) and edges (each pair of adjacent pixels is one).
+### Method Pipeline
+**1.** Compute a downsampled version of the binary map.
+
+**2. Preprocessing:** compute the graph partition and arc-flags on the downsampled image.
+
+**3. Run time:**
+> **(a)** Compute shortest paths in the downsampled image.
+> 
+> **(b)** Path conversion: map each path pixel to center of corresponding block in original image. Then compute shortest paths within source and target blocks to connect actual pixels to block centers.
+
+<div style="align: center">
+  <img src="https://github.com/chenchiachia/BinaryImageDownsampling/blob/main/figures/sp_method.png?raw=true"/>
+</div>
+
+### Key: topology-preserving downsampling
+If the downsampled image has different topologies, critical **"false positive"** cases (i.e., two disconnected vertices incorrectly become connected) and **"false negative"** cases (the vice versa)can happen. 
+Chen et al.(ECCV2024) offers a reliable and fast topology-preserving solution.
+
+<div style="align: center">
+  <img src="https://github.com/chenchiachia/BinaryImageDownsampling/blob/main/figures/FP_FN.png?raw=true"/ height="400">
+</div>
+
+### Testing results
+Our method dramatically reduced the times of the preprocessing step and run-time queries. Memory usages are also reduced. Accuracy is only slightly impacted. By using topology-preserving downsampling, no false-positive or negative-positive cases happen.
+
 ## How to use topology-preserving downsampling tool
 
 1. Open the "downsampling" project, and select the "x64" platform and "Release" configurtion.
