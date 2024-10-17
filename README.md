@@ -2,13 +2,34 @@
 
 ## ECCV 2024: Topology-Preserving Downsampling of Binary Images
 ### Summary
-We propose the first **topology-preserving** binary image downsampling method that:
-1. works for **large (512x512 and up) input images**,
-2. generate **high-quality results**,
+We propose the first ***topology-preserving*** binary image downsampling method that:
+1. works for ***large (512x512 and up) input images***,
+2. generate ***high-quality results***,
 3. can do high level downsampling (e.g., 8x, 16x) out-of-the-box, and
-4. is **resonably** fast (<1 seconds)
+4. is ***resonably*** fast (<1 seconds)
 ### What are binary images and why they are important?
-Binary images are 2D images consisting of exactly two colors. They encode many things in AI such as **segmentation masks** in CV and **2D maps** in computer games. 
+Binary images are 2D images consisting of exactly two colors. They encode many things in AI such as ***segmentation masks*** in CV and ***2D maps*** in computer games. 
+<div style="align: center">
+  <img src="https://github.com/chenchiachia/BinaryImageDownsampling/blob/main/figures/binary_images.png?raw=true"/>
+</div>
+
+### What are the benifits of using smaller, downsampled binary images?
+**1. Smaller computational costs:**
+> Binary imageoperations are time-critical and some are actually expensive, such as ***persistent homology (PH) computation*** of 2D masks and ***shortest path computations*** in 2D masks.
+
+**2. Better visualization:**
+> After downsampling, small details become larger and more legible (if not getting erased!)
+
+<div style="align: center">
+  <img src="https://github.com/chenchiachia/BinaryImageDownsampling/blob/main/figures/benefit.png?raw=true"/>
+</div>
+
+### Why not just using existing downsampling methods?
+All exisiting methods are likely to alter the ***topology*** of binary images - e.g., different components merged, small spots and holes erased, etc.
+
+<div style="align: center">
+  <img src="https://github.com/chenchiachia/BinaryImageDownsampling/blob/main/figures/exisiting_method_problem.png?raw=true"/>
+</div>
 
 ## SIGGRAPH Asia 2024 Poster: Shortest Path Speed-up Through Binary Image Downsampling
 ## How to use topology-preserving downsampling tool
