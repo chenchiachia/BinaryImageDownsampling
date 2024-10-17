@@ -6,7 +6,7 @@
 
 1. Open the "downsampling" project, and select the "x64" platform and "Release" configurtion.
 2. Build the project, and the "downsampling,exe" excutable will be generated in the "x64/Release" folder.
-3. Run the fllowing command to downsample an image.
+3. Run the following command to downsample an image.
 
    ```
    downsampling.exe <image_filename> [<bigpixel_width> <bigpixel_height> <[land_weight> [<calculate_errors> [<save_components> [<neighborhood_offset>]]]]]
@@ -45,3 +45,14 @@
 </div>
 
 ## How to use dilation downsampling tool
+
+1. To downsample a single image, run the following command:
+   ```
+   python dilation.py <image_filename> [output_path.jpg]
+   ```
+2. To process all images in a directory, use the following command:
+    ```
+   python dilation.py input_directory [output_directory]
+
+   ```
+
