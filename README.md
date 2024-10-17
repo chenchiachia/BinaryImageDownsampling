@@ -34,8 +34,8 @@ Binary images are 2D images consisting of exactly two colors. They encode many t
    - <neighborhood_offset>: Coverage offset
       - Default: 0
 
-<div style="align:center"; justify-content: center;">
-  <img src="https://github.com/chenchiachia/BinaryImageDownsampling/tree/main/figures/downsamplin_example.png">
+<div style="align:center">
+  <img src="https://github.com/chenchiachia/BinaryImageDownsampling/tree/main/figures/downsampling_example.png">
 </div>
 
 ## How to use dilation downsampling tool
